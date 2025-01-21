@@ -1,6 +1,7 @@
 package com.projetos.dslist_backend.dto;
 
 import com.projetos.dslist_backend.entities.Game;
+import com.projetos.dslist_backend.projections.GameMinProjection;
 
 public class GameMinDTO {
 	private Long id;
@@ -19,6 +20,15 @@ public class GameMinDTO {
 		imgUrl = game.getImgUrl();
 		short_description = game.getShort_Description();
 	}
+	
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		short_description = projection.getShortDescription();
+	}
+
 
 	public Long getId() {
 		return id;
